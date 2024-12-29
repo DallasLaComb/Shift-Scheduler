@@ -1,59 +1,57 @@
 import { useState } from 'react'
 
-const PutUpShifts = () => {
-  // Simulating the logged-in user's ID
-
-  // Dummy data: shifts assigned to the logged-in user
+const TakeOtherShifts = () => {
+  // Dummy data: Shifts put up by other employees
   const initialShifts = [
     {
-      userId: 1,
-      firstName: 'John',
-      lastName: 'Doe',
+      userId: 2,
+      firstName: 'Jane',
+      lastName: 'Smith',
       startTime: '09:00 AM',
       endTime: '05:00 PM',
       location: 'Office A',
-      date: '2024-01-02',
-      type: 'Assigned Based on Availability',
+      date: '2024-01-03',
+      type: 'Taken Shift',
     },
     {
-      userId: 1,
-      firstName: 'John',
-      lastName: 'Doe',
-      startTime: '08:00 AM',
-      endTime: '04:00 PM',
+      userId: 3,
+      firstName: 'Emily',
+      lastName: 'Johnson',
+      startTime: '10:00 AM',
+      endTime: '06:00 PM',
       location: 'Office B',
       date: '2024-01-04',
       type: 'Assigned Based on Availability',
     },
     {
-      userId: 1,
-      firstName: 'John',
-      lastName: 'Doe',
-      startTime: '10:00 AM',
-      endTime: '06:00 PM',
+      userId: 4,
+      firstName: 'Michael',
+      lastName: 'Brown',
+      startTime: '08:00 AM',
+      endTime: '04:00 PM',
       location: 'Office C',
       date: '2024-01-05',
-      type: 'Assigned Based on Availability',
+      type: 'Overridden Availability',
     },
   ]
 
-  // State to manage shifts
-  const [shifts, setShifts] = useState(initialShifts)
+  // State to manage available shifts
+  const [availableShifts, setAvailableShifts] = useState(initialShifts)
 
-  // Function to "put up" a shift
-  const handlePutUpShift = (index) => {
-    const updatedShifts = [...shifts]
-    updatedShifts.splice(index, 1) // Remove the shift from the list
-    setShifts(updatedShifts)
-    alert('Shift has been put up for someone to take!')
+  // Function to "take" a shift
+  const handleTakeShift = (index) => {
+    const updatedShifts = [...availableShifts]
+    updatedShifts.splice(index, 1) // Remove the taken shift
+    setAvailableShifts(updatedShifts)
+    alert('You have successfully taken the shift!')
   }
 
   return (
     <div className="p-5 font-sans">
-      <h1 className="text-2xl font-bold mb-6">Put Up Shifts</h1>
+      <h1 className="text-2xl font-bold mb-6">Take Other Shifts</h1>
       <p className="mb-4 text-gray-700">
-        Below are your shifts. If you can not make a shift, put it up for
-        someone else to take.
+        Below are shifts that other employees have put up. Select a shift to
+        take it.
       </p>
 
       <table className="table-auto w-full border-collapse border border-gray-300">
@@ -68,8 +66,8 @@ const PutUpShifts = () => {
           </tr>
         </thead>
         <tbody>
-          {shifts.length > 0 ? (
-            shifts.map((shift, index) => (
+          {availableShifts.length > 0 ? (
+            availableShifts.map((shift, index) => (
               <tr key={index} className="hover:bg-gray-100">
                 <td className="border border-gray-300 px-4 py-2 text-center">
                   {shift.firstName} {shift.lastName}
@@ -88,10 +86,10 @@ const PutUpShifts = () => {
                 </td>
                 <td className="border border-gray-300 px-4 py-2 text-center">
                   <button
-                    onClick={() => handlePutUpShift(index)}
-                    className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                    onClick={() => handleTakeShift(index)}
+                    className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
                   >
-                    Put Up Shift
+                    Take Shift
                   </button>
                 </td>
               </tr>
@@ -99,7 +97,7 @@ const PutUpShifts = () => {
           ) : (
             <tr>
               <td colSpan="6" className="text-center py-4">
-                No shifts available to put up.
+                No shifts are currently available to take.
               </td>
             </tr>
           )}
@@ -109,4 +107,4 @@ const PutUpShifts = () => {
   )
 }
 
-export default PutUpShifts
+export default TakeOtherShifts

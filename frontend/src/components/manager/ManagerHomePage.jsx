@@ -3,7 +3,7 @@ const ManagerHomePage = () => {
     <div className="p-5 font-sans">
       <h1 className="text-3xl font-bold mb-6">Manager Dashboard</h1>
       <p className="mb-8 text-gray-700">
-        Manage your team's schedules, shifts, and profiles efficiently.
+        Manage your teams schedules, shifts, and profiles efficiently.
       </p>
 
       {/* Navigation Tabs */}
