@@ -6,6 +6,7 @@ import ManagerHomePage from './components/manager/ManagerHomePage'
 import ViewSchedulePage from './components/employee/ViewSchedulePage'
 import PutUpShifts from './components/employee/PutUpShifts'
 import TakeOtherShifts from './components/employee/TakeOtherShifts'
+import SubmitAvailabilityPage from './components/employee/SubmitAvailabilityPage'
 import './App.css'
 
 function App() {
@@ -21,6 +22,10 @@ function App() {
           <Route path="/ViewSchedulePage" element={<ViewSchedulePage />} />
           <Route path="/PutUpShifts" element={<PutUpShifts />} />
           <Route path="/TakeOtherShifts" element={<TakeOtherShifts />} />
+          <Route
+            path="/SubmitAvailabilityPage"
+            element={<SubmitAvailabilityPage />}
+          />
           {/* Managers */}
 
           <Route path="/ManagerHomePage" element={<ManagerHomePage />} />
