@@ -8,13 +8,14 @@ import PutUpShifts from './components/employee/PutUpShifts'
 import TakeOtherShifts from './components/employee/TakeOtherShifts'
 import SubmitAvailabilityPage from './components/employee/SubmitAvailabilityPage'
 import ViewEmployeeProfile from './components/employee/ViewEmployeeProfile'
-
+import EmployeeNavbar from './components/employee/EmployeeNavBar'
 import './App.css'
 
 function App() {
   return (
     <Router>
       <div>
+        <EmployeeNavbar />
         <Routes>
           {/* global */}
           <Route path="/register" element={<Register />} />
