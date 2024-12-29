@@ -1,4 +1,7 @@
-const { Sequelize } = require('sequelize')
+import { Sequelize } from 'sequelize'
+
+// Convert REJECT_UNAUTHORIZED_FLAG to boolean
+const rejectUnauthorized = process.env.REJECT_UNAUTHORIZED_FLAG === 'true'
 
 const sequelize = new Sequelize(
   process.env.DB_NAME,
@@ -9,12 +12,14 @@ const sequelize = new Sequelize(
     port: process.env.DB_PORT,
     dialect: 'postgres',
     dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false, // Note: Setting this to false is not recommended for production
-      },
+      ssl: rejectUnauthorized
+        ? {
+            require: true,
+            rejectUnauthorized: true,
+          }
+        : false,
     },
   },
 )
 
-module.exports = sequelize
+export default sequelize
