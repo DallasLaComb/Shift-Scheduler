@@ -4,6 +4,7 @@ import Login from './components/global/LoginPage'
 import EmployeeHomePage from './components/employee/EmoployeeHomePage'
 import ManagerHomePage from './components/manager/ManagerHomePage'
 import ViewSchedulePage from './components/employee/ViewSchedulePage'
+import PutUpShifts from './components/employee/PutUpShifts'
 import './App.css'
 
 function App() {
@@ -11,10 +12,15 @@ function App() {
     <Router>
       <div>
         <Routes>
+          {/* global */}
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          {/* Employees */}
           <Route path="/EmployeeHomePage" element={<EmployeeHomePage />} />
           <Route path="/ViewSchedulePage" element={<ViewSchedulePage />} />
+          <Route path="/PutUpShifts" element={<PutUpShifts />} />
+          {/* Managers */}
+
           <Route path="/ManagerHomePage" element={<ManagerHomePage />} />
         </Routes>
       </div>
