@@ -1,5 +1,3 @@
-import React from 'react'
-
 const EmployeeHomePage = () => {
   return (
     <div className="p-5 font-sans">
